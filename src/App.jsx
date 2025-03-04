@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGetCurrentWeatherQuery } from "./store/api/currentWeatherApi";
+import { useTheme } from "./context/Theme/useTheme";
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
 import WeatherForecastCrad from "./components/WeatherForecastCard";
@@ -14,6 +15,7 @@ function App() {
   const [graphData, setGraphData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { data, isLoading, isError } = useGetCurrentWeatherQuery(searchTerm);
+  const {theme, toggleTheme} = useTheme();
 
   const handleSubmit = (term) => {
     setSearchTerm(term);
@@ -49,6 +51,7 @@ function App() {
       "Postman",
     ],
     hooks: ["useState", "useEffect ", "useContext", "useMemo", "useRef"],
+    webApi:['localStorage'],
     refer: {
       title: "Design Referenced 👆",
       url: "https://dribbble.com/shots/19266713-Weather-Forecast-Dashboard",
@@ -67,7 +70,7 @@ function App() {
         <SearchBar onFormSubmit={handleSubmit} />
 
         <div className="header__right-side">
-          <div className="app-theme">Theme</div>
+          <div className="app-theme" onClick={toggleTheme}>{theme === 'light' ? '🌞' :'🌛'}</div>
           <div className="app-developer-detiles" onClick={handleDeveloper}>
             <img
               className="app-developer-image "

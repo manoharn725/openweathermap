@@ -1,5 +1,5 @@
 .weather__card--container {
-  background: #fafafc;
+  background: var(--secondary-bg-color);
 
   /* border-radius: 15px; */
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
@@ -8,7 +8,7 @@
   max-width: 300px;
 
   height: auto;
-  color: #333333;
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -30,7 +30,7 @@
   font-size: 60px;
   font-weight: bold;
   /* margin-top: 10px; */
-  color: #ffce46;
+  color: var(--accent-color);
 }
 
 .feels__like {
@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: #666666;
+  color: var(--secondary-color);
 }
 
 .detail {

@@ -1,5 +1,5 @@
 .temperature-graph {
-  background-color: #fcfcfc;
+  background-color: var(--secondary-bg-color);
   padding: 15px 15px;
   border-radius: 8px;
   width: 460px;

@@ -6,7 +6,7 @@
 }
 .app {
   height: 750px;
-  background-color: #fafafc;
+  background-color: var(--secondary-bg-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 /*  Header Styling */
@@ -16,10 +16,9 @@
   gap: 20px;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffe08a;
+  background-color: var(--tertiary-bg-color);
   padding: 10px 20px;
   max-width: calc(100% - 20px - 20px);
-  color: #000000;
   font-family: Arial, sans-serif;
 }
 .header__right-side {
@@ -28,7 +27,7 @@
   height: 100%;
 }
 .header__right-side > .app-theme {
-  background-color: #fafafc;
+  background-color: var(--secondary-bg-color);
   border-radius: 8px;
   padding: 10px 15px;
   color: #000000;
@@ -38,7 +37,7 @@
 .header__right-side > .app-developer-detiles {
   height: 100%;
   width: 40px;
-  background-color: #fafafc;
+  background-color: var(--secondary-bg-color);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -47,7 +46,7 @@
 }
 .card__details {
   height: calc(100% - 61px);
-  background-color: #faf3e0;
+  background-color: var(--quaternary-bg-color);
   display: flex;
   /* overflow: scroll; */
   max-width: 100%;
@@ -105,8 +104,11 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .header,.header__right-side {
+    gap: 4px;
+  }
   .header__right-side > .app-theme {
-    display: none;
+    padding: 10px;
   }
 }
 

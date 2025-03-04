@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { store } from "./store/store.js";
 import { Provider } from "react-redux";
+import { ThemeContextProvider } from "./context/Theme/ThemeContext.jsx";
 import { UnixToLocalTimeContextProvider } from "./context/UnixToLocalTime/UnixToLocalTimeContext.jsx";
 import { ConvertToCelsiusProvider } from "./context/ConvertToCelsius/ConvertToCelsiusContext.jsx";
 import { GetCurrentDayProvider } from "./context/GetCurrentDay/GetCurrentDayContext.jsx";
@@ -11,13 +12,15 @@ import { GetCurrentDayProvider } from "./context/GetCurrentDay/GetCurrentDayCont
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <UnixToLocalTimeContextProvider>
-        <ConvertToCelsiusProvider>
-          <GetCurrentDayProvider>
-            <App />
-          </GetCurrentDayProvider>
-        </ConvertToCelsiusProvider>
-      </UnixToLocalTimeContextProvider>
+      <ThemeContextProvider>
+        <UnixToLocalTimeContextProvider>
+          <ConvertToCelsiusProvider>
+            <GetCurrentDayProvider>
+              <App />
+            </GetCurrentDayProvider>
+          </ConvertToCelsiusProvider>
+        </UnixToLocalTimeContextProvider>
+      </ThemeContextProvider>
     </Provider>
   </StrictMode>
 );

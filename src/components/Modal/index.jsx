@@ -40,6 +40,12 @@ const Modal = ({ onClose, developer = [] }) => {
                 <span className="skill" key={index}>{hook}</span>
             ))}
            </div>
+           <span className="bold skill">WebApi :</span>
+           <div className="skills">
+            {developer.webApi.map((webApi, index)=> (
+                <span className="skill" key={index}>{webApi}</span>
+            ))}
+           </div>
            <div className="design-refered">
            <a href={`${developer.refer.url}`} target="_blank" className="bold skill">{developer.refer.title}</a> 
            <a href={`${developer.portfolio.url}`} target="blank" className="bold skill">{developer.portfolio.title}</a> 
