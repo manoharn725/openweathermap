@@ -15,7 +15,7 @@ export const GetCurrentDayProvider = ({ children }) => {
     ];
     const date = new Date();
     const currentDay = days[date.getDay()];
-    console.log(date.getDay());
+    // console.log(date.getDay());
     return currentDay;
   }, []);
 
