@@ -15,7 +15,7 @@ function App() {
   const [graphData, setGraphData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { data, isLoading, isError } = useGetCurrentWeatherQuery(searchTerm);
-  const {theme, toggleTheme} = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const handleSubmit = (term) => {
     setSearchTerm(term);
@@ -51,7 +51,7 @@ function App() {
       "Postman",
     ],
     hooks: ["useState", "useEffect ", "useContext", "useMemo", "useRef"],
-    webApi:['localStorage'],
+    webApi: ["localStorage"],
     refer: {
       title: "Design Referenced 👆",
       url: "https://dribbble.com/shots/19266713-Weather-Forecast-Dashboard",
@@ -62,15 +62,15 @@ function App() {
     },
   };
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error: {isError.message}</p>;
   return (
     <div className="app">
       <header className="header">
         <SearchBar onFormSubmit={handleSubmit} />
 
         <div className="header__right-side">
-          <div className="app-theme" onClick={toggleTheme}>{theme === 'light' ? '🌞' :'🌛'}</div>
+          <div className="app-theme" onClick={toggleTheme}>
+            {theme === "light" ? "🌞" : "🌛"}
+          </div>
           <div className="app-developer-detiles" onClick={handleDeveloper}>
             <img
               className="app-developer-image "
@@ -78,33 +78,32 @@ function App() {
               alt="Developer"
             />
           </div>
-          {isModalOpen ? (
-            <Modal
-              developer={developer}
-              onClose={onClose}
-            />
-          ) : (
-            ""
-          )}
+          {isModalOpen ? <Modal developer={developer} onClose={onClose} /> : ""}
         </div>
       </header>
 
-      <div className="card__details">
-        <WeatherCard data={data} />
+      {isError ? (
+        "Error"
+      ) : isLoading ? (
+        "Loading"
+      ) : (
+        <div className="card__details">
+          <WeatherCard data={data} />
 
-        <div className="app__right-side">
-          <div className="app__right-side--top-section">
-            <TemperatureGraph forecastData={graphData} />
-            <HumidityChart forecastData={graphData} />
+          <div className="app__right-side">
+            <div className="app__right-side--top-section">
+              <TemperatureGraph forecastData={graphData} />
+              <HumidityChart forecastData={graphData} />
+            </div>
+
+            <WeatherForecastCrad
+              dataForGraph={updateGraphData}
+              lat={data?.coord?.lat}
+              lon={data?.coord?.lon}
+            />
           </div>
-
-          <WeatherForecastCrad
-            dataForGraph={updateGraphData}
-            lat={data?.coord?.lat}
-            lon={data?.coord?.lon}
-          />
         </div>
-      </div>
+      )}
     </div>
   );
 }
