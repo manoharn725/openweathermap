@@ -8,6 +8,8 @@ import HumidityChart from "./components/HumidityChart";
 import TemperatureGraph from "./components/TemperatureGraph";
 import Modal from "./components/Modal";
 import ManoharImage from "./assets/manohar.jpg";
+import Loader from "./components/Loader";
+import CityNotFound from "./components/CityNotFound";
 import "./App.css";
 
 function App() {
@@ -82,28 +84,30 @@ function App() {
         </div>
       </header>
 
-      {isError ? (
-        "Error"
-      ) : isLoading ? (
-        "Loading"
-      ) : (
-        <div className="card__details">
-          <WeatherCard data={data} />
+      <div className="card__details">
+        {isError ? (
+          <CityNotFound city={searchTerm} />
+        ) : isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <WeatherCard data={data} />
 
-          <div className="app__right-side">
-            <div className="app__right-side--top-section">
-              <TemperatureGraph forecastData={graphData} />
-              <HumidityChart forecastData={graphData} />
+            <div className="app__right-side">
+              <div className="app__right-side--top-section">
+                <TemperatureGraph forecastData={graphData} />
+                <HumidityChart forecastData={graphData} />
+              </div>
+
+              <WeatherForecastCrad
+                dataForGraph={updateGraphData}
+                lat={data?.coord?.lat}
+                lon={data?.coord?.lon}
+              />
             </div>
-
-            <WeatherForecastCrad
-              dataForGraph={updateGraphData}
-              lat={data?.coord?.lat}
-              lon={data?.coord?.lon}
-            />
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
