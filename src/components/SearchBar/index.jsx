@@ -15,9 +15,9 @@ const SearchBar = ({ onFormSubmit }) => {
     setShowSuggestions(value.length > 0);
   };
 
-  const handleSuggestionClick = (city) => {
+  const handleSuggestion = (city) => {
     setTerm(city);
-    onFormSubmit(term);
+    onFormSubmit(city);
     setShowSuggestions(false);
     setTerm("");
   };
@@ -46,7 +46,7 @@ const SearchBar = ({ onFormSubmit }) => {
             <li
               key={index}
               className="suggestion-item"
-              onClick={() => handleSuggestionClick(city)}
+              onClick={() => handleSuggestion(city)}
             >
               {city}
             </li>
