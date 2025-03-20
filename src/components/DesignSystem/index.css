@@ -1,0 +1,71 @@
+.design-system__wrapper {
+  /* width: 100%; */
+  padding: 20px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.design-system {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.light-theme__wrapper,
+.dark-theme__wrapper {
+  flex: 1;
+}
+.design-system h3 {
+  /* border-bottom: 1px solid var(--accent-color); */
+  /* display: inline-block; */
+  padding-bottom: 5px;
+}
+/* we can use (is) or (where) */
+/* .design-system :where(h2, h3){
+    margin: unset;
+} */
+.design-system__wrapper :is(h2, h3) {
+  margin: unset;
+}
+
+.color__design-system {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.color__item {
+  flex-grow: 1;
+  padding: 40px 20px;
+  /* width: 100px;
+  height: 75px;
+  padding: 10px 20px; */
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  border: 1px solid var(--accent-color);
+}
+.design__lottie-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.loader__wrapper,
+.city-not-found__wrapper {
+  flex: 1;
+}
+@media only screen and (max-width: 768px) {
+  .design-system,
+  .design__lottie-items {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+  .color__item {
+    padding: 20px 10px;
+   
+  }
+}

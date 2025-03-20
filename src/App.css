@@ -26,11 +26,11 @@
   gap: 20px;
   height: 100%;
 }
-.header__right-side > .app-theme {
+.header__right-side > .header-item {
   background-color: var(--secondary-bg-color);
   border-radius: 8px;
   padding: 10px 15px;
-  color: #000000;
+  color: var(--text-color);
   font-size: 14px;
   cursor: pointer;
 }
@@ -74,6 +74,7 @@
   border-radius: 50%;
 }
 
+
 @media only screen and (max-width: 1280px) {
   .card__details {
     height: unset;
@@ -101,13 +102,16 @@
     flex-direction: column;
     align-items: center;
   }
+  .header__design-system{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   .header,.header__right-side {
     gap: 4px;
   }
-  .header__right-side > .app-theme {
+  .header__right-side > .header-item {
     padding: 10px;
   }
 }

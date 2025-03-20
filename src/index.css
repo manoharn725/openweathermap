@@ -33,22 +33,21 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --primary-bg-color: #141414; 
-  --secondary-bg-color: #1f1b0b; 
-  --tertiary-bg-color: #3f3912; 
-  --quaternary-bg-color: #2a2410; 
+  --primary-bg-color: #141414;
+  --secondary-bg-color: #1f1f1f;
+  --tertiary-bg-color: #2b2b2b;
+  --quaternary-bg-color: #242424;
 
-  --primary-bg-hover-color: #463d13; 
-
-  --dot-color: #ffffff; 
-
-  --primary-color: #dcd4a1; 
-  --secondary-color: #c4ab68; 
-  --tertiary-color: #b7954c; 
-  --quaternary-color: #dbad5f; 
-  --accent-color: #f5b93d; 
-  --text-color: #ead9b0; 
-  --modal-close: #d99623; 
+  --primary-bg-hover-color: #333333;
+  
+  --dot-color: #ffffff;
+  --primary-color: #dcd4a1;
+  --secondary-color: #c4ab68;
+  --tertiary-color: #b7954c;
+  --quaternary-color: #a07d3a;
+  --accent-color: #f5b93d;
+  --text-color: #ead9b0;
+  --modal-close: #d99623;
 }
 
 /* Light Theme */
@@ -69,24 +68,6 @@
   --accent-color: #ffce46;
   --text-color: #000;
   --modal-close:#3a3a3a;
-}
-
-[data-theme="dark"] {
-  --primary-bg-color: #141414;
-  --secondary-bg-color: #1f1f1f;
-  --tertiary-bg-color: #2b2b2b;
-  --quaternary-bg-color: #242424;
-
-  --primary-bg-hover-color: #333333;
-  
-  --dot-color: #ffffff;
-  --primary-color: #dcd4a1;
-  --secondary-color: #c4ab68;
-  --tertiary-color: #b7954c;
-  --quaternary-color: #a07d3a;
-  --accent-color: #f5b93d;
-  --text-color: #ead9b0;
-  --modal-close: #d99623;
 }
 
 
