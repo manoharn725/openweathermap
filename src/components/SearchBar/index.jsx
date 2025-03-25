@@ -6,7 +6,9 @@ import "./index.css";
 const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const { data = [] } = useGetCitySuggestionsQuery(term);
+  const { data = [] } = useGetCitySuggestionsQuery(term, {
+    skip: !term.trim(), // Skip API call if term is empty
+  });
   const cities = data.map((data) => data.name);
 
   const handleOnChange = (e) => {
