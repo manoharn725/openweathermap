@@ -19,7 +19,7 @@ const Modal = ({ onClose, developer = [] }) => {
         </div>
 
         <div className="modal__box--developer">
-          <img src={developer.image} className="modal__box--developer-image" />
+          <img src={developer.image} className="modal__box--developer-image" loading="lazy" />
           <div className="modal__box--developer-detailes">
             <div className="modal__box--developer-name">
               <span className="bold skill">App Developer :</span>

@@ -25,6 +25,7 @@ const WeatherCard = ({ data }) => {
         className="weather__card--icon"
         src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}
         alt={data?.weather[0]?.description}
+        loading="lazy"
       />
       <div className="description">{data?.weather[0]?.description}</div>
       <div className="temperature">

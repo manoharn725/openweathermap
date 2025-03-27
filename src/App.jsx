@@ -59,6 +59,7 @@ function App() {
               className="app-developer-image "
               src={developer.image}
               alt="Developer"
+              loading="lazy"
             />
           </div>
           {isModalOpen ? <Modal developer={developer} onClose={onClose} /> : ""}
