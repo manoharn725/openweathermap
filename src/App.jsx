@@ -51,7 +51,7 @@ function App() {
     if (isError) {
       removeStoredValue();
     }
-  }, [isError, removeStoredValue]);
+  }, [isError]);
 
   return (
     <div className="app">
