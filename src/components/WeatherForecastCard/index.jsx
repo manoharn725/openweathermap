@@ -32,7 +32,7 @@ const WeatherForecastCrad = ({ lat, lon, dataForGraph }) => {
     if (dataForGraph) {
       dataForGraph(filteredData);
     }
-  }, [data, selectedDay]);
+  }, [data, selectedDay, dataForGraph, filteredData]);
 
   return (
     <div className="weather-forecast-card__wrapper">
