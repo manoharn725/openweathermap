@@ -11,10 +11,11 @@ import { developer } from "./utils/developerData";
 import Loader from "./components/Loader";
 import CityNotFound from "./components/CityNotFound";
 import DesignSystem from "./components/DesignSystem";
+import useLocalStorage from "./hooks/useLocalStorage";
 import "./App.css";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("Neralakatte");
+  const [searchTerm, setSearchTerm] = useLocalStorage("city","Neralakatte");
   const [graphData, setGraphData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDesignSystem, setIsDesignSystem] = useState(false);

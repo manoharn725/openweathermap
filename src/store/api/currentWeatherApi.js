@@ -11,7 +11,7 @@ export const currentWeatherApi = createApi({
   tagTypes: ["GetCurrentWeather", "GetCitySuggestions"],
   endpoints: (builder) => ({
     getCurrentWeather: builder.query({
-      query: (city = "neralakatte") => ({
+      query: (city) => ({
         url: `/data/2.5/weather?q=${city}&appid=${apiKey}`,
         method: "GET",
         providesTags: ["GetCurrentWeather"],
