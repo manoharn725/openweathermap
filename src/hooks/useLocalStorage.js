@@ -4,7 +4,7 @@ const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      return item !== null ? JSON.parse(item) : initialValue;
     } catch (error) {
       console.log(`Error reading localStorage key:${(key, error)}`);
       return initialValue;
@@ -23,7 +23,15 @@ const useLocalStorage = (key, initialValue) => {
     }
   }, [key, storedValue]);
 
-  return [storedValue, setStoredValue];
+  const removeStoredValue = () => {
+    try {
+      localStorage.removeItem(key);
+    } catch (error) {
+      console.log(`Error Removing LocalStorage key: ${(key, error)}`);
+    }
+  };
+
+  return [storedValue, setStoredValue, removeStoredValue];
 };
 
 export default useLocalStorage;

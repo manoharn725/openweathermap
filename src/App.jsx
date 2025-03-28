@@ -15,7 +15,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import "./App.css";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useLocalStorage("city","Neralakatte");
+  const [searchTerm, setSearchTerm, removeStoredValue] = useLocalStorage("city", "Neralakatte");
   const [graphData, setGraphData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDesignSystem, setIsDesignSystem] = useState(false);
@@ -26,15 +26,19 @@ function App() {
   const handleSubmit = (term) => {
     setSearchTerm(term);
   };
+
   const updateGraphData = (dataForGraph) => {
     setGraphData(dataForGraph);
   };
+
   const handleDeveloper = () => {
     setIsModalOpen(true);
   };
+
   const onClose = () => {
     setIsModalOpen(false);
   };
+
   useEffect(() => {
     setIsDesignSystem(false);
   }, [searchTerm]);
@@ -42,6 +46,12 @@ function App() {
   const handleDesignSystem = () => {
     setIsDesignSystem((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (isError) {
+      removeStoredValue();
+    }
+  }, [isError]);
 
   return (
     <div className="app">
@@ -57,13 +67,13 @@ function App() {
           </div>
           <div className="app-developer-detiles" onClick={handleDeveloper}>
             <img
-              className="app-developer-image "
+              className="app-developer-image"
               src={developer.image}
               alt="Developer"
               loading="lazy"
             />
           </div>
-          {isModalOpen ? <Modal developer={developer} onClose={onClose} /> : ""}
+          {isModalOpen && <Modal developer={developer} onClose={onClose} />}
         </div>
       </header>
 
