@@ -1,14 +1,14 @@
-import { useUnixToLocalTimeContext } from "../../context/UnixToLocalTime/useUnixToLocalTimeContext";
-import { useConvertToCelsiusContext } from "../../context/ConvertToCelsius/useConvertToCelsiusContext";
+import { useCurrentTimeContext } from "../../context/GetCurrentTime/useCurrentTimeContext";
+import { getcurrentDay, getCurrentMonth } from "../../utils/dateUtils";
+import {
+  convertToCelsius,
+  convertUnixToLocalTime,
+  convertUnixToFormattedDate,
+} from "../../utils/converter";
 import "./index.css";
-import { useGetCurrentDayContext } from "../../context/GetCurrentDay/useGetCurrentDayContext";
 
 const WeatherCard = ({ data }) => {
-  const { convertUnixToLocalTime, convertUnixToFormattedDate } =
-    useUnixToLocalTimeContext();
-  const { convertToCelsius } = useConvertToCelsiusContext();
-  const { getcurrentDay, getCurrentMonth, currentTime } =
-    useGetCurrentDayContext();
+  const { currentTime } = useCurrentTimeContext();
 
   return (
     <div className="weather__card--container" key={data?.id}>
@@ -16,10 +16,10 @@ const WeatherCard = ({ data }) => {
         <span>
           {data?.name}, {data?.sys?.country}
         </span>
-        <span>{getCurrentMonth}</span>
+        <span>{getCurrentMonth()}</span>
       </div>
       <div className="weather__card--time">
-        {getcurrentDay}, {currentTime}
+        {getcurrentDay()}, {currentTime}
       </div>
       <img
         className="weather__card--icon"
