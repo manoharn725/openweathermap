@@ -7,15 +7,14 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { useUnixToLocalTimeContext } from "../../context/UnixToLocalTime/useUnixToLocalTimeContext";
+import { convertUnixTo12HoursFormate } from "../../utils/converter";
 import "./index.css";
 
 // ✅ Register necessary chart elements
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const HumidityChart = ({ forecastData = [] }) => {
-  const { convertUnixTo12HoursFormate } = useUnixToLocalTimeContext();
-
+  
   // console.log("check", forecastData);
   const labels = forecastData?.map((item) =>
     convertUnixTo12HoursFormate(item?.dt_txt.split(" ")[1])

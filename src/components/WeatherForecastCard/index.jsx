@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { useGetFivedayWeatherForecastQuery } from "../../store/api/currentWeatherApi";
-import { useUnixToLocalTimeContext } from "../../context/UnixToLocalTime/useUnixToLocalTimeContext";
-import { useConvertToCelsiusContext } from "../../context/ConvertToCelsius/useConvertToCelsiusContext";
+import { convertToCelsius, convertUnixTo12HoursFormate, convertUnixToFormattedDate } from "../../utils/converter";
 import "./index.css";
 
 const WeatherForecastCrad = ({ lat, lon, dataForGraph }) => {
   const { data } = useGetFivedayWeatherForecastQuery({ lat, lon });
   // console.log(data?.list?.map((d) => console.log(d)));
   // console.log('lat:',lat, 'lon:',lon);
-  const { convertUnixToFormattedDate, convertUnixTo12HoursFormate } =
-    useUnixToLocalTimeContext();
-  const { convertToCelsius } = useConvertToCelsiusContext();
 
   const currentDate = new Date();
   const numberOfDays = [0, 1, 2, 3, 4, 5];

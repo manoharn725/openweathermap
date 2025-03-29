@@ -9,8 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { useUnixToLocalTimeContext } from "../../context/UnixToLocalTime/useUnixToLocalTimeContext";
-import { useConvertToCelsiusContext } from "../../context/ConvertToCelsius/useConvertToCelsiusContext";
+import { convertToCelsius,convertUnixTo12HoursFormate } from "../../utils/converter";
 import "./index.css";
 
 // Register required components
@@ -25,8 +24,6 @@ ChartJS.register(
 );
 
 const TemperatureGraph = ({ forecastData = [] }) => {
-  const { convertUnixTo12HoursFormate } = useUnixToLocalTimeContext();
-  const { convertToCelsius } = useConvertToCelsiusContext();
 
   const labels = forecastData?.map((item) =>
     convertUnixTo12HoursFormate(item?.dt_txt.split(" ")[1])
