@@ -7,7 +7,7 @@ import WeatherForecastCrad from "./components/WeatherForecastCard";
 import HumidityChart from "./components/HumidityChart";
 import TemperatureGraph from "./components/TemperatureGraph";
 import Modal from "./components/Modal";
-import { developer } from "./utils/developerData";
+import { developer } from "./utils/developerInfo";
 import Loader from "./components/Loader";
 import CityNotFound from "./components/CityNotFound";
 import DesignSystem from "./components/DesignSystem";
