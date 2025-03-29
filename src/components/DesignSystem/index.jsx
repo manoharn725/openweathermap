@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import weatherLoader from "../../assets/weatherLoader.json";
 import catSleeping from "../../assets/catSleeping.json";
-import {lightTheme, darkTheme} from '../../utils/developerData'
+import {lightTheme, darkTheme} from '../../utils/themeConfig'
 import "./index.css";
 
 const DesignSystem = () => {
