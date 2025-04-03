@@ -1,7 +1,6 @@
-import Lottie from "lottie-react";
-import weatherLoader from "../../assets/weatherLoader.json";
-import catSleeping from "../../assets/catSleeping.json";
-import {lightTheme, darkTheme} from '../../utils/themeConfig'
+import {lightTheme, darkTheme} from '../../utils/themeConfig';
+import Loader from "../Loader";
+import CityNotFound from "../CityNotFound";
 import "./index.css";
 
 const DesignSystem = () => {
@@ -49,22 +48,12 @@ const DesignSystem = () => {
         <div className="design__lottie-items">
           <div className="loader__wrapper">
             <h3>Loader :</h3>
-            <Lottie
-              animationData={weatherLoader}
-              autoPlay
-              loop
-              style={{ width: 300, height: 300 }}
-            />
+            <Loader unsetStyle={true} />
           </div>
 
           <div className="city-not-found__wrapper">
             <h3>City Not Found :</h3>
-            <Lottie
-              animationData={catSleeping}
-              autoPlay
-              loop
-              style={{ width: 300, height: 300 }}
-            />
+            <CityNotFound unsetStyle={true} />
           </div>
         </div>
         

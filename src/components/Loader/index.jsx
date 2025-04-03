@@ -2,9 +2,9 @@ import Lottie from "lottie-react";
 import weatherLoader from "../../assets/weatherLoader.json";
 import "./index.css";
 
-const Loader = () => {
+const Loader = ({unsetStyle}) => {
   return (
-    <div className="loader">
+    <div className={unsetStyle ?'unset__loader':'loader'}>
       <Lottie
         animationData={weatherLoader}
         autoPlay loop 

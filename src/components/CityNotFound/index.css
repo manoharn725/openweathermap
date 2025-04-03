@@ -8,6 +8,13 @@
 .not-found > h1 {
   text-align: center;
 }
+.unset__not-found {
+  width: unset;
+  display: unset;
+}
+.unset__not-found > h1 {
+  display: none;
+}
 @media only screen and (max-width: 1280px) {
   .not-found {
     height: calc(100dvh - 60px);

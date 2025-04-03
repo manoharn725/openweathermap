@@ -2,9 +2,9 @@ import Lottie from "lottie-react";
 import catSleeping from "../../assets/catSleeping.json";
 import "./index.css";
 
-const CityNotFound = ({ city }) => {
+const CityNotFound = ({ city, unsetStyle }) => {
   return (
-    <div className="not-found">
+    <div className={unsetStyle ? 'unset__not-found' : 'not-found'}>
       <h1>City {`"${city}"`} not found!</h1>
       <Lottie
         animationData={catSleeping}
