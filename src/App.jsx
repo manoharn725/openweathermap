@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useGetCurrentWeatherQuery } from "./store/api/currentWeatherApi";
 import { useTheme } from "./context/Theme/useTheme";
 import SearchBar from "./components/SearchBar";
@@ -6,13 +6,15 @@ import WeatherCard from "./components/WeatherCard";
 import WeatherForecastCrad from "./components/WeatherForecastCard";
 import HumidityChart from "./components/HumidityChart";
 import TemperatureGraph from "./components/TemperatureGraph";
-import Modal from "./components/Modal";
 import { developer } from "./utils/developerInfo";
 import Loader from "./components/Loader";
 import CityNotFound from "./components/CityNotFound";
-import DesignSystem from "./components/DesignSystem";
 import useLocalStorage from "./hooks/useLocalStorage";
 import "./App.css";
+
+// Lazy Loading Component
+const Modal = lazy(()=> import('./components/Modal'));
+const DesignSystem = lazy(()=> import('./components/DesignSystem'));
 
 function App() {
   const [searchTerm, setSearchTerm, removeStoredValue] = useLocalStorage("city", "Neralakatte");
@@ -73,13 +75,14 @@ function App() {
               loading="lazy"
             />
           </div>
-          {isModalOpen && <Modal developer={developer} onClose={onClose} />}
         </div>
       </header>
 
       <div className="card__details">
         {isDesignSystem ? (
+          <Suspense fallback={<Loader />}>
           <DesignSystem />
+          </Suspense>
         ) : isError ? (
           <CityNotFound city={searchTerm} />
         ) : isLoading ? (
@@ -103,6 +106,9 @@ function App() {
           </>
         )}
       </div>
+          <Suspense fallback={<Loader />}>
+          {isModalOpen && <Modal developer={developer} onClose={onClose} />}
+          </Suspense>
     </div>
   );
 }
