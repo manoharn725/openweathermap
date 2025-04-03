@@ -25,9 +25,9 @@ const Modal = ({ onClose, developer = [] }) => {
               <span className="bold skill">App Developer :</span>
               <span className="skill">{developer.name}</span>
             </div>
-            <div className="modal__box--developer-designation">
+            {/* <div className="modal__box--developer-designation">
               <span className="bold skill">Role :</span> <span className="skill">{developer.role}</span>
-            </div>
+            </div> */}
             <span className="bold skill">The tools I used to build this app :</span>
            <div className="skills">
             {developer.skills.map((skill, index)=> (

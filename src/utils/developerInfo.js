@@ -1,7 +1,7 @@
 import ManoharImage from '../assets/manohar.jpg'
 export const developer = {
     name: "Manohar N",
-    role: "React Developer",
+    // role: "React Developer",
     image: `${ManoharImage}`,
     skills: [
       "React js",
@@ -19,7 +19,7 @@ export const developer = {
       "Visual studio",
       "Postman",
     ],
-    hooks: ["useState", "useEffect ", "useContext", "useMemo", "useRef"],
+    hooks: ["useState", "useEffect ", "useContext", "useRef", "useCallback"],
     webApi: ["localStorage"],
     refer: {
       title: "Design Referenced 👆",
