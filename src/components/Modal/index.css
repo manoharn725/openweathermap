@@ -128,7 +128,7 @@
   justify-content: center;
   padding-top: 4px;
   gap: 6px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .skill {
@@ -143,6 +143,9 @@
   color: var(--secondary-color);
   cursor: pointer;
   position: relative;
+ flex: 1;
+ text-wrap:nowrap;
+
 }
 .bold {
   font-weight: 900;
@@ -152,7 +155,7 @@
   padding: 4px 8px;
   border-radius: 4px;
   display: inline-block;
-  margin: 0px 6px 6px 0px;
+  margin-right: 6px;
 }
 .design-refered {
   margin: 15px 0 0px;

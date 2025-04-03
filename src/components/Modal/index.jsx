@@ -21,31 +21,37 @@ const Modal = ({ onClose, developer = [] }) => {
         <div className="modal__box--developer">
           <img src={developer.image} className="modal__box--developer-image" loading="lazy" />
           <div className="modal__box--developer-detailes">
-            <div className="modal__box--developer-name">
+            <div className="modal__box--developer-name skills">
               <span className="bold skill">App Developer :</span>
               <span className="skill">{developer.name}</span>
             </div>
             {/* <div className="modal__box--developer-designation">
               <span className="bold skill">Role :</span> <span className="skill">{developer.role}</span>
-            </div> */}
-            <span className="bold skill">The tools I used to build this app :</span>
+              </div> */}
            <div className="skills">
+            <span className="bold skill">ToolKits :</span>
             {developer.skills.map((skill, index)=> (
                 <span className="skill" key={index}>{skill}</span>
             ))}
            </div>
-           <span className="bold skill">The hooks I used to build this app :</span>
            <div className="skills">
+           <span className="bold skill">Hooks :</span>
             {developer.hooks.map((hook, index)=> (
                 <span className="skill" key={index}>{hook}</span>
             ))}
            </div>
-           <span className="bold skill">WebApi :</span>
            <div className="skills">
-            {developer.webApi.map((webApi, index)=> (
-                <span className="skill" key={index}>{webApi}</span>
+           <span className="bold skill">LazyLoading :</span>
+            {developer.lazyLoading.map((lazyLoading, index)=> (
+                <span className="skill" key={index}>{lazyLoading}</span>
             ))}
            </div>
+              <div className="skills">
+              <span className="bold skill">WebApi :</span>
+               {developer.webApi.map((webApi, index)=> (
+                   <span className="skill" key={index}>{webApi}</span>
+               ))}
+              </div>
            <div className="design-refered">
            <a href={`${developer.refer.url}`} target="_blank" className="bold skill">{developer.refer.title}</a> 
            <a href={`${developer.portfolio.url}`} target="blank" className="bold skill">{developer.portfolio.title}</a> 
