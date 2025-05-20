@@ -9,7 +9,7 @@ import TemperatureGraph from "./components/TemperatureGraph";
 import { developer } from "./utils/developerInfo";
 import Loader from "./components/Loader";
 import CityNotFound from "./components/CityNotFound";
-import useLocalStorage from "./hooks/useLocalStorage";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import "./App.css";
 
 // Lazy Loading Component
