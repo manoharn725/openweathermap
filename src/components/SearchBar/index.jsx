@@ -1,14 +1,19 @@
-import { useGetCitySuggestionsQuery } from "../../store/api/currentWeatherApi";
 import { useState } from "react";
+import { useGetCitySuggestionsQuery } from "../../store/api/currentWeatherApi";
+import { useDebounce } from "../../hooks/useDebounce";
 
 import "./index.css";
 
 const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const { data = [] } = useGetCitySuggestionsQuery(term, {
-    skip: !term.trim(), // Skip API call if term is empty
+
+  const debouncedTerm = useDebounce(term, 500);
+
+  const { data = [] } = useGetCitySuggestionsQuery(debouncedTerm, {
+    skip: !debouncedTerm.trim(), // Skip API call if term is empty
   });
+
   const cities = data.map((data) => data.name);
 
   const handleOnChange = (e) => {
@@ -18,7 +23,6 @@ const SearchBar = ({ onFormSubmit }) => {
   };
 
   const handleSuggestion = (city) => {
-    setTerm(city);
     onFormSubmit(city);
     setShowSuggestions(false);
     setTerm("");
